@@ -1,154 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Undangan Pernikahan</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;600&display=swap');
-
-  html, body {
-    margin: 0; padding: 0;
-    height: 100%;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #fceabb, #f8b500);
-    color: #4b2e05;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-  }
-
-  .container {
-    background: rgba(255 255 255 / 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 25px;
-    padding: 2.4rem 2rem 3rem;
-    box-shadow: 0 12px 32px rgba(248, 181, 0, 0.34);
-    max-width: 340px;
-    width: 90vw;
-    text-align: center;
-    position: relative;
-  }
-
-  h1 {
-    font-family: 'Parisienne', cursive;
-    font-size: 3.6rem;
-    margin: 0 0 0.1rem 0;
-    color: #ad6300;
-    text-shadow: 0 3px 8px rgba(173, 99, 0, 0.5);
-  }
-
-  h2 {
-    font-weight: 300;
-    font-size: 1.7rem;
-    margin: 0 0 1.6rem 0;
-    color: #7a4b01;
-    letter-spacing: 0.08em;
-    user-select: text;
-  }
-
-  p.details {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0.5rem 0;
-    color: #7a4b01;
-    user-select: text;
-  }
-
-  button#music-btn {
-    margin-top: 2.1rem;
-    background: #ad6300;
-    border: none;
-    color: white;
-    font-weight: 700;
-    font-size: 1.2rem;
-    padding: 0.85rem 2.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(173, 99, 0, 0.7);
-    transition: background-color 0.3s ease;
-    user-select: none;
-  }
-  button#music-btn:hover {
-    background: #f8b500;
-    color: #4b2e05;
-  }
-  button#music-btn:focus {
-    outline: 3px solid #4b2e05;
-    outline-offset: 3px;
-  }
-
-  audio {
-    display: none;
-  }
-
-  @media (max-width: 400px) {
-    .container {
-      padding: 1.8rem 1.5rem 2.4rem;
-      max-width: 95vw;
-    }
-    h1 {
-      font-size: 2.8rem;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 1.1rem;
-    }
-    p.details {
-      font-size: 1rem;
-    }
-    button#music-btn {
-      font-size: 1.1rem;
-      padding: 0.75rem 1.6rem;
-    }
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #d5006d;
+        }
+        .details {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .details p {
+            margin: 5px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-  <main class="container" role="main" aria-label="Undangan Pernikahan">
-    <h1>Ariya &amp; Sakila</h1>
-    <h2>Mengundang Anda Untuk Hadir di Acara Pernikahan Kami</h2>
-    <p class="details">Selasa, 6 mei 2025</p>
-    <p class="details">Gedung Serba Guna trans1 bangka tengah</p>
-    <button id="music-btn" aria-pressed="false" aria-label="Putar musik pernikahan">Putar Musik Pernikahan</button>
-    <audio id="wedding-music" loop preload="auto">
-      <source src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_8f3a1371b3.mp3?filename=gentle-piano-background-music-5373.mp3" type="audio/mpeg" />
-      Browser Anda tidak mendukung elemen audio.
-    </audio>
-  </main>
-<script>
-  const musicBtn = document.getElementById('music-btn');
-  const audio = document.getElementById('wedding-music');
-  let playing = false;
 
-  musicBtn.addEventListener('click', () => {
-    if (!playing) {
-      audio.play().catch(() => {
-        alert('Klik tombol sekali lagi untuk memutar musik.');
-      });
-      musicBtn.textContent = 'Jeda Musik Pernikahan';
-      musicBtn.setAttribute('aria-pressed', 'true');
-      playing = true;
-    } else {
-      audio.pause();
-      musicBtn.textContent = 'Putar Musik Pernikahan';
-      musicBtn.setAttribute('aria-pressed', 'false');
-      playing = false;
-    }
-  });
+<div class="container">
+    <h1>Undangan Pernikahan</h1>
+    <div class="details">
+        <p>Dengan memohon rahmat dan ridho Allah SWT,</p>
+        <p>Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan:</p>
+        <p><strong>Nama Pengantin ariya</strong><br>
+        <p><strong>Nama Pengantin sakila</strong><br
+        <p>Tanggal: 20 Mei 2025</p>
+        <p>Waktu: 10:00 WIB</p>
+        <p>Tempat: Gedung Serba Guna, Jl. trans 1,bangka tengah</p>
+    </div>
+    <div class="footer">
+        <p>Mohon doa restu dan kehadirannya.</p>
+        <p>Terima kasih.</p>
+    </div>
+</div>
 
-  // Pause music when page hidden
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && playing) {
-      audio.pause();
-      musicBtn.textContent = 'Putar Musik Pernikahan';
-      musicBtn.setAttribute('aria-pressed', 'false');
-      playing = false;
-    }
-  });
-</script>
 </body>
 </html>
