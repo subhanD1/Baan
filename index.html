@@ -1,61 +1,76 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Pernikahan</title>
+    <title>Hacker Terminal</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            height: 100vh;
             margin: 0;
-            padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: white;
+        .terminal {
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 100%;
+            overflow-y: auto;
+            white-space: pre;
         }
-        h1 {
-            text-align: center;
-            color: #d5006d;
+        .input {
+            color: white;
         }
-        .details {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .details p {
-            margin: 5px 0;
-        }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #777;
+        .prompt {
+            color: green;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <h1>Undangan Pernikahan</h1>
-    <div class="details">
-        <p>Dengan memohon rahmat dan ridho Allah SWT,</p>
-        <p>Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara pernikahan:</p>
-        <p><strong>Nama Pengantin zaafer</strong><br>
-        <p><strong>Nama Pengantin azra</strong><br
-        <p>Tanggal: 20 Mei 2025</p>
-        <p>Waktu: 10:00 WIB</p>
-        <p>Tempat: Gedung Serba Guna, Jl. trans 1,bangka tengah</p>
+    <div class="terminal" id="terminal">
+        <div class="output">selamat datang di hacker Baan </div>
+        <div class="output">Type 'hack'akun free firepake id.</div>
+        <div class="output">----------------------------------------</div>
+        <div class="input">
+            <span class="prompt">Baan@hacker:~$</span> <input type="text" id="commandInput" autofocus />
+        </div>
     </div>
-    <div class="footer">
-        <p>Mohon doa restu dan kehadirannya.</p>
-        <p>Terima kasih.</p>
-    </div>
-</div>
 
+    <script>
+        const terminal = document.getElementById('terminal');
+        const commandInput = document.getElementById('commandInput');
+
+        commandInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const command = commandInput.value;
+                processCommand(command);
+                commandInput.value = '';
+            }
+        });
+
+        function processCommand(command) {
+            const output = document.createElement('div');
+            output.className = 'output';
+            output.textContent = `> ${command}`;
+
+            terminal.appendChild(output);
+            terminal.scrollTop = terminal.scrollHeight; // Scroll to the bottom
+
+            switch (command.toLowerCase()) {
+                case 'help':
+                    output.textContent += '\nAvailable commands: help, hack, exit';
+                    break;
+                case 'hack':
+                    output.textContent += '\nHacking in progress... Just kidding! This is a simulation.';
+                    break;
+                case 'exit':
+                    output.textContent += '\nExiting...';
+                    break;
+                default:
+                    output.textContent += '\nCommand not found. Type "help" for assistance.';
+            }
+        }
+    </script>
 </body>
 </html>
